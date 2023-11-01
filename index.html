@@ -57,10 +57,10 @@
               ><strong>Product Category:</strong></label
             >
             <select id="product-category" class="form-select">
-              <option value="electronics" selected>Electronics</option>
+              <option value="electronics">Electronics</option>
               <option value="grocery">Grocerry</option>
               <option value="books">Books</option>
-              <option value="gadgets">Gadgets</option>
+              <option value="gadgets" selected>Gadgets</option>
             </select>
           </div>
           <button
@@ -80,26 +80,34 @@
         <strong><p id="cart-value" class="">CheckOut Value</p></strong>
       </div>
       <hr />
-      <h1 class="d-lg-flex justify-content-center">PRODUCTS</h1>
+      <h1 class="d-lg-flex">PRODUCTS</h1>
       <div class="border border-success">
         <ul class="list-group">
-          <li class="list-group-item">
-            <h3>Electronics</h3>
+          <li class="list-group-item border border-danger">
+            <h3 class="text-uppercase" style="color: green; text-align: center">
+              Electronics
+            </h3>
             <ul id="electronics"></ul>
           </li>
 
-          <li class="list-group-item">
-            <h3>Grocerry</h3>
+          <li class="list-group-item border border-danger">
+            <h3 class="text-uppercase" style="color: green; text-align: center">
+              Grocerry
+            </h3>
             <ul id="grocery"></ul>
           </li>
 
-          <li class="list-group-item">
-            <h3>Books</h3>
+          <li class="list-group-item border border-danger">
+            <h3 class="text-uppercase" style="color: green; text-align: center">
+              Books
+            </h3>
             <ul id="books"></ul>
           </li>
 
-          <li class="list-group-item">
-            <h3>GAdgets</h3>
+          <li class="list-group-item border border-danger">
+            <h3 class="text-uppercase" style="color: green; text-align: center">
+              Gadgets
+            </h3>
             <ul id="gadgets"></ul>
           </li>
         </ul>

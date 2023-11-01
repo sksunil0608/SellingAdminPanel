@@ -4,7 +4,7 @@ getProduct()
 async function getCurrentTotalCartValue() {
   try {
     const response = await axios.get(
-      "https://crudcrud.com/api/c680c2ec467648ccb8cc7fd3712330b4/product-data"
+      "https://crudcrud.com/api/203bd904a4e747448d8ed6297d1b05d4/product-data"
     );
     let totalCartValue = 0;
     let totalCartItems = 0;
@@ -58,16 +58,16 @@ function showAllProductsOnPage(response){
         for(key in response.data[i]){
             div.innerHTML = `<table style="width: 90%; padding: 6px; margin: 30px;">
                       <tr class="border-1">
-                        <th class="border-1">Product Name</th>
-                        <th class="border-1">Selling Price</th>
-                        <th class="border-1">Product Category</th>
-                        <th class="border-1">Delete</th>
-                        <th class="border-1">Update</th>
+                        <th class="border-1 text-primary">PRODUCT NAME</th>
+                        <th class="border-1 text-primary">PRICE</th>
+                        <th class="border-1 text-primary">CATEGORY</th>
+                        <th class="border-1 text-primary">DELETE</th>
+                        <th class="border-1 text-primary">UPDATE</th>
                       </tr>
                       <tr class="border-1">
                         <td class="border-1">${response.data[i].product_name}</td>
                         <td class="border-1">${response.data[i].selling_price}</td>
-                        <td class="border-1">${response.data[i].product_category}</td>
+                        <td class="border-1 text-capitalize">${response.data[i].product_category}</td>
                         <td class="border-1">
                             <button class="btn btn-danger btn-sm input-group-text m-1" onclick="deleteProduct('${response.data[i]._id}')">
                                 Delete
@@ -85,7 +85,7 @@ function showAllProductsOnPage(response){
     
     
     li.appendChild(detail)
-    ul = document.querySelector(`#${response.data[i].product_category}`)
+    ul = document.getElementById(`${response.data[i].product_category}`)
     ul.appendChild(detail)
 }
 }
@@ -109,16 +109,16 @@ function showAddedProduct(response){
     for(key in response.data){
           div.innerHTML = `<table style="width: 90%; padding: 6px; margin: 30px;">
                       <tr class="border-1">
-                        <th class="border-1">Product Name</th>
-                        <th class="border-1">Selling Price</th>
-                        <th class="border-1">Product Category</th>
-                        <th class="border-1">Delete</th>
-                        <th class="border-1">Update</th>
+                        <th class="border-1 text-primary">PRODUCT NAME</th>
+                        <th class="border-1 text-primary">PRICE</th>
+                        <th class="border-1 text-primary">CATEGORY</th>
+                        <th class="border-1 text-primary">DELETE</th>
+                        <th class="border-1 text-primary">UPDATE</th>
                       </tr>
                       <tr class="border-1">
                         <td class="border-1">${response.data.product_name}</td>
                         <td class="border-1">${response.data.selling_price}</td>
-                        <td class="border-1">${response.data.product_category}</td>
+                        <td class="border-1 text-capitalize">${response.data.product_category}</td>
                         <td class="border-1">
                             <button class="btn btn-danger btn-sm input-group-text m-1" onclick="deleteProduct('${response.data._id}')">
                                 Delete
@@ -156,7 +156,7 @@ function showInputDataOnEditpage(data) {
 function getProduct(){
     axios
       .get(
-        "https://crudcrud.com/api/c680c2ec467648ccb8cc7fd3712330b4/product-data"
+        "https://crudcrud.com/api/203bd904a4e747448d8ed6297d1b05d4/product-data"
       )
       .then((response) => {
         showAllProductsOnPage(response);
@@ -179,7 +179,7 @@ async function addProduct(event){
         product_category
     }
     try{
-        const response = await axios.post('https://crudcrud.com/api/c680c2ec467648ccb8cc7fd3712330b4/product-data',obj)
+        const response = await axios.post('https://crudcrud.com/api/203bd904a4e747448d8ed6297d1b05d4/product-data',obj)
         updateCurrentTotalCartValueOnPage();
         showAddedProduct(response);
         emptyAllInputBox();
@@ -189,7 +189,7 @@ async function addProduct(event){
     }
     
     // axios
-    //   .post("https://crudcrud.com/api/c680c2ec467648ccb8cc7fd3712330b4/product-data", obj)
+    //   .post("https://crudcrud.com/api/203bd904a4e747448d8ed6297d1b05d4/product-data", obj)
     //   .then((response) => {
     //     location.reload();
     //   })
@@ -205,7 +205,7 @@ function deleteOnPage(id){
 }
 function deleteProduct(id){
     
-    axios.delete(`https://crudcrud.com/api/c680c2ec467648ccb8cc7fd3712330b4/product-data/${id}`)
+    axios.delete(`https://crudcrud.com/api/203bd904a4e747448d8ed6297d1b05d4/product-data/${id}`)
     .then((response)=>{
         deleteOnPage(id);
         updateCurrentTotalCartValueOnPage();
@@ -216,7 +216,7 @@ function deleteProduct(id){
 
 
 function updateProduct(id){
-    axios(`https://crudcrud.com/api/c680c2ec467648ccb8cc7fd3712330b4/product-data/${id}`)
+    axios(`https://crudcrud.com/api/203bd904a4e747448d8ed6297d1b05d4/product-data/${id}`)
     .then((response)=>{
         showInputDataOnEditpage(response.data)
     }).catch((err)=>{
@@ -242,8 +242,8 @@ function updateProduct(id){
         }
 
         try{
-            await axios.put(`https://crudcrud.com/api/c680c2ec467648ccb8cc7fd3712330b4/product-data/${id}`,obj)
-            const response = await axios.get(`https://crudcrud.com/api/c680c2ec467648ccb8cc7fd3712330b4/product-data/${id}`);
+            await axios.put(`https://crudcrud.com/api/203bd904a4e747448d8ed6297d1b05d4/product-data/${id}`,obj)
+            const response = await axios.get(`https://crudcrud.com/api/203bd904a4e747448d8ed6297d1b05d4/product-data/${id}`);
             showEditedProduct(response);
             updateCurrentTotalCartValueOnPage();
             emptyAllInputBox();
